@@ -24,7 +24,7 @@ export class SongService {
 
   getSongs(): Observable<Song[]> {
     this.messageService.add('SongService: fetched Songs');
-     return this.http.get<Song[]>(lastfm.chart.getTopTracks());
+     return this.http.get<Song[]>(lastfm);
 
   }
 
