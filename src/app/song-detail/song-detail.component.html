@@ -1,0 +1,6 @@
+<div *ngIf="song">
+
+    <h2>{{ song.name | uppercase }} Details</h2>
+    <div><span>artist: </span>{{song.artist}}</div>
+  </div>
+  <button (click)="goBack()">go back</button>

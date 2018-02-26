@@ -1,0 +1,12 @@
+<h2>TOP 5 Songs</h2>
+
+<div style="text-align:center">
+<ul class="songs">
+    <li *ngFor="let song of songs">
+        <a routerLink="/detail/{{song.id}}">
+    <span class="badge">{{song.id}}</span> {{song.name}},{{song.artist}}
+    </a>
+  </li>
+</ul>
+</div>
+<!-- <app-song-detail [song]="selectedSong"></app-song-detail> -->
