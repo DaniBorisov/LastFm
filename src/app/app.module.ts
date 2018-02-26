@@ -11,6 +11,9 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -22,13 +25,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent
   ],
   imports: [
+    HttpModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
   providers: [
     SongService,
-    MessageService
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })
