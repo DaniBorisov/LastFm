@@ -10,19 +10,33 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
+
 // const LastFM = require('last-fm');
 // const lastfm =
 //  new LastFM('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5');
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class SongService {
 
+  songs: object;
   private SongsUrl =
   'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
+
+    //   getSongs(): void {
+    //     this.http
+    //     .get('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5')
+    //     .subscribe((res: Response) => {
+    //       this.songs = res.json();
+    //     }
+    // );
 
   getSongs(): Observable<Song[]> {
     this.messageService.add('SongService: fetched Songs');
@@ -32,10 +46,15 @@ export class SongService {
     );
 
   }
+
   getSong(id: number): Observable<Song> {
     const url = `${this.SongsUrl}/${id}`;
-    return this.http.get<Song>(url);
+    return this.http.get<Song>(url).pipe(
+      tap(_ => this.log(`fetched song id=${id}`)),
+      catchError(this.handleError<Song>(`getSong id=${id}`))
+    );
   }
+
 
   // getSong(id: number): Observable<Song> {
   //   this.messageService.add(`SongService: fetched song id=${id}`);
@@ -58,6 +77,6 @@ export class SongService {
   }
 
   private log(message: string) {
-    this.messageService.add('HeroService: ' + message);
+    this.messageService.add('SongService: ' + message);
   }
 }

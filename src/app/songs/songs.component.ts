@@ -20,6 +20,6 @@ export class SongsComponent implements OnInit {
 
   getSongs(): void {
     this.songService.getSongs()
-      .subscribe(songs => this.songs = songs);
+      .subscribe(songs => this.songs = songs.tracks.track);
   }
 }

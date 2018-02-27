@@ -3,8 +3,9 @@
 <div class="grid grid-pad">
     <a *ngFor="let song of songs" class="col 0-5"
     routerLink="/detail/{{song.id}}">
-    <div class="module song">
+    <div class="module song ">
       <h4>{{song.id}}. {{song.name}}</h4>
     </div>
   </a>
 </div>
+<div class="grid grid-pad">
