@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Song } from '../song';
-import { SongService } from '../song.service';
+import { Song } from '../songs/song';
+import { SongService } from '../songs/song.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +10,7 @@ import { SongService } from '../song.service';
 export class DashboardComponent implements OnInit {
   songs: Song[] = [];
 
+
   constructor(private songService: SongService) { }
 
   ngOnInit() {
@@ -18,6 +19,9 @@ export class DashboardComponent implements OnInit {
 
   getSongs(): void {
     this.songService.getSongs()
-      .subscribe(songs => this.songs = songs.tracks.track);
+      .subscribe(songs => this.songs = songs);
+      console.log('get ot dash', this.songs);
   }
+
+
 }

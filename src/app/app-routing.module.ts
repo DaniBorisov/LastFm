@@ -9,7 +9,7 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:id', component: SongDetailComponent },
+  { path: 'detail/:name', component: SongDetailComponent },
   { path: 'songs', component: SongsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Song } from '../song';
+import { Song } from '../songs/song';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { SongService } from '../song.service';
+import { SongService } from '../songs/song.service';
 
 @Component({
   selector: 'app-song-detail',
@@ -13,6 +13,7 @@ import { SongService } from '../song.service';
 })
 export class SongDetailComponent implements OnInit {
   @Input() song: Song;
+  @Input() artist;
 
   constructor(
   private route: ActivatedRoute,
@@ -22,13 +23,31 @@ export class SongDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getSong();
+    this.getArtist();
+    this.getArtistID();
   }
 
   getSong(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.songService.getSong(id)
-      .subscribe(song => this.song = song.tracks.track[id][2]);
+    const name = +this.route.snapshot.paramMap.get('name');
+     this.songService.getSong(name)
+      .subscribe(song => this.song = song);
+      console.log('log ot detail', this.song);
   }
+
+  getArtist(): void {
+    this.songService.getArtist()
+      .subscribe(artist => this.artist = artist);
+      console.log('log ot detail za artist', this.artist);
+  }
+
+  getArtistID(): void {
+    this.songService.getArtist()
+      .subscribe(artist => this.artist = artist);
+      console.log('log ot detail za artist', this.artist);
+  }
+
+
+
   goBack(): void {
     this.location.back();
   }

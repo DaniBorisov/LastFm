@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
-import { SongService } from './song.service';
+import { SongService } from './songs/song.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
