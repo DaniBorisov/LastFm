@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Song } from './song';
+import { Artist } from '../artist';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -71,9 +72,9 @@ export class SongService {
     );
   }
 
-  getArtist(): Observable<Song[]> {
-    return this.http.get(this.songUrl)
-      .map(res => res['tracks']['track']['artist'] as Song[]);
+  getArtist(): Observable<Artist[]> {
+    return this.http.get(this.SongsUrl)
+      .map(res => res['tracks']['track']['artist'] as Artist[]);
   }
 
   getSongsWithMbid(mbid: number): Observable<Song[]> {
