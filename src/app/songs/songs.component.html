@@ -4,7 +4,7 @@
 <ul class="songs">
     <li *ngFor="let song of songs">
         <a routerLink="/detail/{{song.name}}">
-            <span class="badge">{{song.name}}</span> {{artist.name}}
+            <span class="badge">{{song.name}}</span> {{song.artist.name}}
         </a>
     </li>
 </ul>

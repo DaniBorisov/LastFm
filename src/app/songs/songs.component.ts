@@ -19,7 +19,7 @@ export class SongsComponent implements OnInit {
 
   ngOnInit() {
     this.getSongs();
-    this.getArtist();
+    // this.getArtist();
   }
 
   getSongs(): void {

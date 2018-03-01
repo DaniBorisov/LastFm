@@ -1,6 +1,6 @@
-<div *ngIf="song">
+<div *ngFor="let song of songs$ | async" >
 
     <h2>{{ song.name | uppercase }} Details</h2>
-    <div><span>artist: </span>{{artist.name}}</div>
+    <div><span>artist: </span> {{song.artist.name}} </div>
   </div>
   <button (click)="goBack()">go back</button>

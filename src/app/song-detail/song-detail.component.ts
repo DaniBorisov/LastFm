@@ -29,10 +29,10 @@ export class SongDetailComponent implements OnInit {
   }
 
   getSong(): void {
-    const name = +this.route.snapshot.paramMap.get('name');
-     this.songService.getSong(name)
+    const mbid = +this.route.snapshot.paramMap.get('name');
+     this.songService.getSong(mbid)
       .subscribe(song => this.song = song);
-      console.log('log ot detail', this.song);
+      console.log('log ot detail', mbid);
   }
 
   getArtist(): void {
@@ -47,7 +47,10 @@ export class SongDetailComponent implements OnInit {
   //     console.log('log ot detail za artist', this.artist);
   // }
 
-
+//  getSongWithMbid(): void  {
+//      this.songService.getSongsWithMbid()
+//      .subscribe(artist => this.artist = artist);
+//  }
 
   goBack(): void {
     this.location.back();
