@@ -1,5 +1,5 @@
 export class Song {
-    name: string;
+    name: string = null;
     artist: string;
     mbid: string;
 }

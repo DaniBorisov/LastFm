@@ -17,8 +17,9 @@ const httpOptions = {
 
 @Injectable()
 export class ArtistService {
+
   private artistUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json&artist=';
+  'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json&mbid=';
 
   constructor(
     private http: HttpClient,
@@ -27,10 +28,10 @@ export class ArtistService {
     getArtist(name: string): Observable<Artist> {
       const url = `${this.artistUrl}${name}`;
       console.log('log ot artist service za url', url);
-      return this.http.get<Artist>(url).pipe(
-        tap(_ => this.log(`fetched artist name=${name}`)),
-        catchError(this.handleError<Artist>(`getArtist name=${name}`))
-      );
+      return this.http.get<Artist>(url)
+      .map (res => res ['artist'] as Artist);
+
+
     }
 
 

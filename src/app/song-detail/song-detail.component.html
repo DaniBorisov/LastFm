@@ -1,7 +1,7 @@
-<!-- <div *ngFor="let song of songs$ | async" > -->
-  <div>
+
+  <div *ngIf="song">
     <h2>{{ song.name | uppercase }} Details</h2>
-    <div><span>artist: </span> {{artist.name}} </div>
+    <div><span>artist: </span> {{song.artist.name}} </div>
   </div>
-  <app-artist-detail></app-artist-detail>
+  <!-- <app-artist-detail *ngIf="song" [artist]="song.artist.mbid"   ></app-artist-detail> -->
   <button (click)="goBack()">go back</button>

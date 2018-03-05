@@ -3,11 +3,12 @@
 <div style="text-align:center">
 <ul class="songs">
     <li *ngFor="let song of songs">
-        <a routerLink="/detail/{{song.name}}">
-            <span class="badge">{{song.name}}</span> {{song.artist.name}}
+        <a routerLink="/detail/{{song.mbid}}">
+            <span class="badge">{{song.name}} </span> {{song.artist.name}} 
         </a>
     </li>
 </ul>
+
 </div>
- <app-artist-detail style="position: relative"></app-artist-detail>
- <app-artist-song></app-artist-song>
+ <!-- <app-artist-detail></app-artist-detail>
+ <app-artist-song></app-artist-song> -->

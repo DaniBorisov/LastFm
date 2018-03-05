@@ -13,8 +13,8 @@ import { SongService } from '../songs/song.service';
   styleUrls: ['./song-detail.component.css']
 })
 export class SongDetailComponent implements OnInit {
-  @Input() song: Song;
-  artist: Artist[] = [];
+ public song: Song = new Song();
+
 
 
   constructor(
@@ -24,22 +24,22 @@ export class SongDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('nedhto');
     this.getSong();
-    this.getArtist();
   }
 
   getSong(): void {
-    const name = this.route.snapshot.paramMap.get('name');
-     this.songService.getSong(name)
-      .subscribe(song => this.song = song);
-      console.log('log ot detail', this.song.artist);
+    const mbid = this.route.snapshot.paramMap.get('mbid');
+     this.songService.getSong(mbid)
+      .subscribe(song => {this.song = song;
+      console.log(song); } );
   }
 
-  getArtist(): void {
-    this.songService.getArtist()
-      .subscribe(artist => this.artist = artist);
-      console.log('log ot detail za artist', this.artist);
-  }
+  // getArtist(): void {
+  //   this.songService.getArtist()
+  //     .subscribe(artist => this.artist = artist);
+  //     console.log('log ot detail za artist', this.artist);
+  // }
 
   // getArtistID(): void {
   //   this.songService.getArtist()

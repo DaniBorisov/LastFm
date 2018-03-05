@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ArtistService } from '../artist.service';
 import { Artist } from '../artist';
@@ -9,7 +9,7 @@ import { Artist } from '../artist';
   styleUrls: ['./artist-detail.component.css']
 })
 export class ArtistDetailComponent implements OnInit {
-   artist: Artist;
+  @Input() artist: Artist;
 
    private artistService: ArtistService;
 
