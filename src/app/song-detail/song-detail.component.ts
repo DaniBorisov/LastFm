@@ -29,10 +29,10 @@ export class SongDetailComponent implements OnInit {
   }
 
   getSong(): void {
-    const mbid = +this.route.snapshot.paramMap.get('name');
-     this.songService.getSong(mbid)
+    const name = this.route.snapshot.paramMap.get('name');
+     this.songService.getSong(name)
       .subscribe(song => this.song = song);
-      console.log('log ot detail', mbid);
+      console.log('log ot detail', this.song.artist);
   }
 
   getArtist(): void {

@@ -21,10 +21,12 @@ const httpOptions = {
 @Injectable()
 export class SongService {
 
-  // songs: object;
+
   private SongsUrl =
   'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5';
 
+  private songUrl =
+  'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json';
 
   constructor(
     private http: HttpClient,
@@ -37,13 +39,24 @@ export class SongService {
       .map(res => res['tracks']['track'] as Song[]);
   }
 
+  // getSong(name: string, artist: string): Observable<Song> {
+  //   const url = `${this.songUrl} &artist=${artist}&track=${name}`;
+  //   console.log('log ot srvice za url', url);
+  //   return this.http.get<Song>(url).pipe(
+  //     tap(_ => this.log(`fetched song id=${name}`)),
+  //     catchError(this.handleError<Song>(`getSong id=${name}`))
+  //   );
+  // }
+
   getSong(name: string): Observable<Song> {
-    const url = `${this.SongsUrl}/artist/${name}`;
+    const url = `${this.SongsUrl}`;
+    console.log('log ot srvice za url', url);
     return this.http.get<Song>(url).pipe(
       tap(_ => this.log(`fetched song id=${name}`)),
       catchError(this.handleError<Song>(`getSong id=${name}`))
     );
   }
+
 
   getArtist(): Observable<Artist[]> {
     return this.http.get(this.SongsUrl)

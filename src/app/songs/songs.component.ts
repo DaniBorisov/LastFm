@@ -19,18 +19,11 @@ export class SongsComponent implements OnInit {
 
   ngOnInit() {
     this.getSongs();
-    // this.getArtist();
   }
 
   getSongs(): void {
     this.songService.getSongs()
       .subscribe(songs => this.songs = songs);
-  }
-
-  getArtist(): void {
-    this.songService.getArtist()
-      .subscribe(artist => this.artist = artist);
-      console.log('log ot songs za artist', this.artist);
   }
 }
 

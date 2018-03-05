@@ -13,6 +13,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
+import { ArtistSongComponent } from './artist-song/artist-song.component';
 
 
 
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     SongsComponent,
     SongDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ArtistDetailComponent,
+    ArtistSongComponent
   ],
   imports: [
     HttpModule,
