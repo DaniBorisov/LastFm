@@ -11,23 +11,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistDetailComponent implements OnInit {
 
-  @Input() artist: Artist = new Artist() ;
+  @Input() mbid: string;
+  artist: Artist;
 
-   private artistService: ArtistService;
-   private route: ActivatedRoute;
-
-  constructor() { }
+  constructor(
+    private artistService: ArtistService,
+  ) { }
 
   ngOnInit() {
     this.getArtist();
   }
 
 
+  ngOnChange() {
+    this.getArtist();
+  }
+
   getArtist(): void {
-    const mbid = this.artist;
+
     console.log('log ot detail za artist mbid', this.artist);
-    this.artistService.getArtist(mbid + '')
+    this.artistService.getArtist(this.mbid)
       .subscribe(artist => this.artist = artist);
-      console.log('log ot detail za artist', this.artist);
+      console.log('log ot detail za artist', this.mbid);
   }
 }
