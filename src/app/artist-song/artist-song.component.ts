@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { ArtistService } from '../artist-detail/artist.service';
 import { Artist } from '../artist-detail/artist';
-import { Song } from '../songs/song';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistSongComponent implements OnInit {
 
-  @Input() artist: Artist[];
+  @Input() artists: Artist[];
 
   private artistService: ArtistService;
   private route: ActivatedRoute;
@@ -20,11 +19,12 @@ export class ArtistSongComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.getToptrackArtist();
   }
 
   getToptrackArtist(): void {
-    const mbid = this.artist;
+    const mbid = this.artists;
     this.artistService.getArtistTop(mbid + '')
-      .subscribe(artist => this.artist = artist);
+      .subscribe(artist => this.artists = artist);
   }
 }

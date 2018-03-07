@@ -1,11 +1,13 @@
 <h2>TOP 5 Songs</h2>
 
 <div style="text-align:center">
-<ul class="songs">
-    <li *ngFor="let song of songs">
-        <a routerLink="/detail/{{song.mbid}}">
-            <span class="badge">{{song.name}} </span> {{song.artist.name}} 
-        </a>
-    </li>
-</ul>
+ <ul class="songs">
+      <li *ngFor="let song of songs">
+          <div *ngIf="song.artist.mbid != null">
+             <a routerLink="/detail/{{song.mbid}}">
+                <span class="badge">{{song.name}} </span> {{song.artist.name}} 
+             </a> 
+          </div>
+      </li>
+ </ul>
 </div>
