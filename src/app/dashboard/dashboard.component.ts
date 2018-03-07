@@ -10,7 +10,6 @@ import { SongService } from '../songs/song.service';
 export class DashboardComponent implements OnInit {
   songs: Song[] = [];
 
-
   constructor(private songService: SongService) { }
 
   ngOnInit() {
@@ -22,6 +21,4 @@ export class DashboardComponent implements OnInit {
       .subscribe(songs => this.songs = songs);
       console.log('get ot dash', this.songs);
   }
-
-
 }

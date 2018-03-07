@@ -1,7 +1,10 @@
 
   <div *ngIf="song">
-    <h2>{{ song.name | uppercase }} Details</h2>
+   <div *ngIf song.name != ''>
+    <h2>{{ song.name | uppercase }}</h2>
     <div><span>artist: </span> {{song.artist.name}} </div>
+    </div>
   </div>
-  <!-- <app-artist-detail *ngIf="song" [artist]="song.artist.mbid"   ></app-artist-detail> -->
+   <app-artist-detail *ngIf="song" [artist]="song.artist.mbid"></app-artist-detail>
+   <!-- <app-artist-song *ngIf="song" [artist]="song.artist.mbid"></app-artist-song> -->
   <button (click)="goBack()">go back</button>

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ArtistService } from '../artist.service';
-import { Artist } from '../artist';
+import { ArtistService } from './artist.service';
+import { Artist } from './artist';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-artist-detail',
@@ -9,20 +10,23 @@ import { Artist } from '../artist';
   styleUrls: ['./artist-detail.component.css']
 })
 export class ArtistDetailComponent implements OnInit {
-  @Input() artist: Artist;
+
+  @Input() artist: Artist = new Artist() ;
 
    private artistService: ArtistService;
-
+   private route: ActivatedRoute;
 
   constructor() { }
 
   ngOnInit() {
+    this.getArtist();
   }
 
 
   getArtist(): void {
-    const name = '';
-    this.artistService.getArtist(name)
+    const mbid = this.artist;
+    console.log('log ot detail za artist mbid', this.artist);
+    this.artistService.getArtist(mbid + '')
       .subscribe(artist => this.artist = artist);
       console.log('log ot detail za artist', this.artist);
   }

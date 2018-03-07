@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Song } from './song';
 import { SongService } from './song.service';
 
-import {Artist} from '../artist';
 
 @Component({
   selector: 'app-songs',
@@ -13,7 +12,6 @@ import {Artist} from '../artist';
 export class SongsComponent implements OnInit {
 
   songs: Song[];
-  artist: Artist[];
 
   constructor(private songService: SongService) {}
 

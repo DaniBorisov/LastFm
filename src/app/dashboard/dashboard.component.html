@@ -1,10 +1,12 @@
 <h3>Top 5 Songs Today!</h3>
 
 <div class="grid grid-pad">
-    <a *ngFor="let song of songs" ngif="song.artist.mbid !== null" class="col 0-5"
+    <a *ngFor="let song of songs" 
+        ngif="song.artist.mbid !== null " 
+        class="col 0-5"
         routerLink="/detail/{{song.mbid}}">  
     <div class="module song ">
-      <h4>{{song.name}}</h4>
+      <h4>{{song.name}} {{song.mbid}}</h4>
     </div>
   </a>
 </div>

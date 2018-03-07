@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Song } from '../songs/song';
-import { Artist } from '../artist';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,9 +12,8 @@ import { SongService } from '../songs/song.service';
   styleUrls: ['./song-detail.component.css']
 })
 export class SongDetailComponent implements OnInit {
+
  public song: Song = new Song();
-
-
 
   constructor(
   private route: ActivatedRoute,
@@ -24,33 +22,16 @@ export class SongDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('nedhto');
+    console.log('predi getsong');
     this.getSong();
-  }
+    console.log('sled get song');  }
 
   getSong(): void {
     const mbid = this.route.snapshot.paramMap.get('mbid');
      this.songService.getSong(mbid)
       .subscribe(song => {this.song = song;
-      console.log(song); } );
+      console.log('get song ot song details', this.song); } );
   }
-
-  // getArtist(): void {
-  //   this.songService.getArtist()
-  //     .subscribe(artist => this.artist = artist);
-  //     console.log('log ot detail za artist', this.artist);
-  // }
-
-  // getArtistID(): void {
-  //   this.songService.getArtist()
-  //     .subscribe(artist => this.artist = artist);
-  //     console.log('log ot detail za artist', this.artist);
-  // }
-
-//  getSongWithMbid(): void  {
-//      this.songService.getSongsWithMbid()
-//      .subscribe(artist => this.artist = artist);
-//  }
 
   goBack(): void {
     this.location.back();
