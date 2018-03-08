@@ -29,9 +29,9 @@ export class ArtistDetailComponent implements OnInit {
 
   getArtist(): void {
 
-    console.log('log ot detail za artist mbid', this.artist);
+    console.log('log ot detail za artist mbid', this.mbid);
     this.artistService.getArtist(this.mbid)
       .subscribe(artist => this.artist = artist);
-      console.log('log ot detail za artist', this.mbid);
+      console.log('log ot detail za artist', this.artist);
   }
 }

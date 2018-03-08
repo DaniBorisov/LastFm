@@ -1,4 +1,8 @@
-<div *ngIf="artist">
-  <h2> {{ artist.name | uppercase }} Details</h2>
-  <div> {{artist.bio.summary}} </div>
+<div style="text-align:center">
+  <div class="artist">
+      <ng-container *ngIf="artist">
+            <h2> {{ artist.name | uppercase }} </h2>
+            <h5 > {{artist.bio.summary}} </h5>
+     </ng-container>
+  </div>
 </div>

@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { SongService } from '../songs/song.service';
 import { Artist } from './artist';
+import { ArtistSongs } from '../artist-song/artistSongs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -34,10 +35,11 @@ export class ArtistService {
       .map (res => res ['artist'] as Artist);
     }
 
-    getArtistTop(mbid: string): Observable<Artist[]> {
+    getArtistTop(mbid: string): Observable<ArtistSongs[]> {
       const url = `${this.artistTopTracksUrl}${mbid}`;
+      console.log('log ot artistTOP service za url', url);
       return this.http.get(url)
-        .map(res => res['toptracks']['track'] as Artist[]);
+        .map(res => res['toptracks']['track'] as ArtistSongs[]);
     }
 
     private handleError<T> (operation = 'operation', result?: T) {

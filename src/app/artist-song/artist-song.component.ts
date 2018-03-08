@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ArtistService } from '../artist-detail/artist.service';
-import { Artist } from '../artist-detail/artist';
-import { ActivatedRoute } from '@angular/router';
+import { ArtistSongs } from '../artist-song/artistSongs';
 
 @Component({
   selector: 'app-artist-song',
@@ -11,20 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtistSongComponent implements OnInit {
 
-  @Input() artists: Artist[];
+  @Input() mbid: string;
+  songs: ArtistSongs[];
 
-  private artistService: ArtistService;
-  private route: ActivatedRoute;
-
-  constructor() { }
+  constructor(
+    private artistService: ArtistService,
+  ) { }
 
   ngOnInit() {
+    console.log('dasdasdas');
+    this.getToptrackArtist();
+  }
+
+  ngOnChange() {
     this.getToptrackArtist();
   }
 
   getToptrackArtist(): void {
-    const mbid = this.artists;
-    this.artistService.getArtistTop(mbid + '')
-      .subscribe(artist => this.artists = artist);
+    this.artistService.getArtistTop(this.mbid)
+      .subscribe(song => this.songs = song);
+      console.log('mbid ot artist song', this.songs);
   }
 }
