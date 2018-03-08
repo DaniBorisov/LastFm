@@ -1,13 +1,14 @@
 
   <div *ngIf="song.name">
     <!-- default view -->
-    <ng-container *ngIf="!song.artist.mbid">
+    <ng-container *ngIf="parent">
       <h2>{{ song.name | uppercase }}</h2>
       <div><span>artist: </span> {{song.artist.name}} </div>
+      <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
   </ng-container>
   <!-- Artist Songs View -->
-  <ng-container *ngIf="song.artist.mbid">
-    <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
+  <ng-container *ngIf="!parent">
+    <!-- <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail> -->
     <app-artist-song [mbid]="song.artist.mbid"></app-artist-song>
   </ng-container>
 

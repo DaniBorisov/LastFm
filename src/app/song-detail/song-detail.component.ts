@@ -14,6 +14,7 @@ import { SongService } from '../songs/song.service';
 export class SongDetailComponent implements OnInit {
 
  public song: Song = new Song();
+ public parent = true;
 
   constructor(
   private route: ActivatedRoute,
