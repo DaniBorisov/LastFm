@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 import { ArtistSongComponent } from './artist-song/artist-song.component';
 import { ArtistService } from './artist-detail/artist.service';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
 
 
 
@@ -27,7 +29,8 @@ import { ArtistService } from './artist-detail/artist.service';
     MessagesComponent,
     DashboardComponent,
     ArtistDetailComponent,
-    ArtistSongComponent
+    ArtistSongComponent,
+    SearchComponent
   ],
   imports: [
     HttpModule,
@@ -39,6 +42,7 @@ import { ArtistService } from './artist-detail/artist.service';
   providers: [
     SongService,
     ArtistService,
+    SearchService,
     MessageService,
   ],
   bootstrap: [AppComponent]
