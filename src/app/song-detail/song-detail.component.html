@@ -3,14 +3,23 @@
     <!-- default view -->
     <ng-container *ngIf="parent">
       <h2>{{ song.name | uppercase }}</h2>
+<<<<<<< HEAD
       <div><span>artist: </span> {{song.artist.name}} </div>
       <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
   </ng-container>
   <!-- Artist Songs View -->
   <ng-container *ngIf="!parent">
     <!-- <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail> -->
+=======
+       <div><span>artist: </span> {{song.artist.name}} </div>
+      <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
+    </ng-container>
+  <!-- Artist Songs View -->
+  <ng-container *ngIf="!parent">
+      <app-song-detail>
+>>>>>>> e165cd024a3b9cc883c8836107d0b187ac3843d9
     <app-artist-song [mbid]="song.artist.mbid"></app-artist-song>
+     </app-song-detail>
   </ng-container>
-
-  </div>
-  <button (click)="goBack()">go back</button>
+</div>
+    <button (click)="goBack()">go back</button>

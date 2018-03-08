@@ -1,9 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Song } from '../songs/song';
+import { ViewChild, SimpleChanges } from '@angular/core';
+import { environment } from './../../environments/environment';
+
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { Song } from '../songs/song';
 import { SongService } from '../songs/song.service';
 
 @Component({
