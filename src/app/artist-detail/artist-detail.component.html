@@ -1,19 +1,21 @@
 <div style="text-align:center">
   <div class="artist">
-      <ng-container *ngIf="artist">
-            <h2> {{ artist.name | uppercase }} </h2>
-            <h5 > {{artist.bio.summary}} </h5>
-     </ng-container>
-     <ng-container *ngIf="parent">
+    <ng-container *ngIf="artist">
+        <h2> {{ artist.name | uppercase }} </h2>
+        <h5 > {{artist.bio.summary}} </h5>
+    </ng-container>
+      <ng-container *ngIf="parent">
+        <app-artist-song></app-artist-song>
+        <h2>Similar Artist</h2>
         <div class="artists">
             <ng-container  *ngFor="let artist of artists">
                 <li>
                     <a>
-                      {{artist.name}}
+                        <h4 routerLink="/detail/artist/{{artist.mbid}}">{{artist.name}} </h4>
                     </a>
                 </li>
             </ng-container>
           </div>
-     </ng-container>
+      </ng-container>
   </div>
 </div>

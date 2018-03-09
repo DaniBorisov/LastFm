@@ -1,0 +1,10 @@
+<h2>Top Songs</h2>
+<div class="songs">
+    <li *ngFor="let song of songs">
+        <div *ngIf="song">
+            <a routerLink="/detail/{{song.mbid}}">
+                <span class="badge">{{song.name}} </span>
+            </a>
+        </div>
+    </li>
+</div>

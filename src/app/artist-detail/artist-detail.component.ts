@@ -30,18 +30,16 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   getArtist(): void {
-    const mbid = this.route.snapshot.paramMap.get('mbid');
-    console.log('?????????????????artist.mbid ot artist-detail', mbid);
-    if ( !(mbid !== '' && mbid != null)) {
+    const ambid = this.route.snapshot.paramMap.get('mbid');
+    if ( !(this.mbid !== '' && this.mbid != null)) {
       this.parent = true;
-      console.log('?????????????????PARENT', this.parent);
+      console.log('Sim PARENT', this.parent);
     }
-    console.log('THIS.artist.mbid ot artist-detail', this.mbid);
     this.artistService.getArtist(this.mbid)
       .subscribe(artist => {
         this.artist = artist;
         if (this.parent) {
-          this.getSimilarArtist(artist['mbid']);
+          this.getSimilarArtist(ambid);
         }
       });
       console.log('artist ot artist-detail', this.artist);
