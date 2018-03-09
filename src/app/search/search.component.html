@@ -1,9 +1,9 @@
 <input
 (keyup)="searchTerm$.next($event.target.value)">
-<ul *ngIf="results">
-  <li *ngFor="let result of results">
-    <a>
-      {{ result.name}} {{result.artist.name}}
-    </a>
-  </li>
-</ul>
+  <ul *ngIf="results">
+    <li *ngFor="let result of results">
+      <a>
+        {{ result.name}} {{result.artist.name}}
+      </a>
+    </li>
+  </ul>

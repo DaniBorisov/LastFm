@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable} from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { MessageService } from '../message.service';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+
+import { MessageService } from '../message.service';
 import { SongService } from '../songs/song.service';
 import { Artist } from './artist';
-import { ArtistSongs } from '../artist-song/artistSongs';
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Song } from '../songs/song';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,29 +27,29 @@ export class ArtistService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-    getArtist(mbid: string): Observable<Artist> {
-      const url = `${this.artistUrl}${mbid}`;
-      console.log('log ot artist service za url', url);
-      return this.http.get<Artist>(url)
-      .map (res => res ['artist'] as Artist);
-    }
-
-    getArtistTop(mbid: string): Observable<ArtistSongs[]> {
-      const url = `${this.artistTopTracksUrl}${mbid}`;
-      console.log('log ot artistTOP service za url', url);
-      return this.http.get(url)
-        .map(res => res['toptracks']['track'] as ArtistSongs[]);
-    }
-
-    private handleError<T> (operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-        console.error(error);
-        this.log(`${operation} failed: ${error.message}`);
-        return of(result as T);
-      };
-    }
-
-    private log(message: string) {
-      this.messageService.add('SongService: ' + message);
-    }
+  getArtist(mbid: string): Observable<Artist> {
+    const url = `${this.artistUrl}${mbid}`;
+    console.log('log ot artist service za url', url);
+    return this.http.get<Artist>(url)
+    .map (res => res ['artist'] as Artist);
   }
+
+  getArtistTop(mbid: string): Observable<Song[]> {
+    const url = `${this.artistTopTracksUrl}${mbid}`;
+    console.log('log ot artistTOP service za url', url);
+    return this.http.get(url)
+    .map(res => res['toptracks']['track'] as Song[]);
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
+  private log(message: string) {
+    this.messageService.add('SongService: ' + message);
+  }
+}

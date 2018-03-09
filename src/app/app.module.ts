@@ -29,7 +29,6 @@ import { SearchService } from './search/search.service';
     MessagesComponent,
     DashboardComponent,
     ArtistDetailComponent,
-    ArtistSongComponent,
     SearchComponent
   ],
   imports: [

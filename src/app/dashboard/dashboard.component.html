@@ -2,13 +2,13 @@
 
 <div class="grid grid-pad">
   <ng-container *ngFor="let song of songs">
-   <a *ngIf="song.mbid"
-     class="col 0-5"
-     routerLink="/detail/{{song.mbid}}">  
-         <div class="module song ">
-           <h4>{{song.name}} </h4>{{song.mbid}}   
-        </div>
-  </a>
-</ng-container>
+    <a *ngIf="song.mbid"
+       class="col 0-5"
+       routerLink="/detail/{{song.mbid}}">
+          <div class="module song ">
+            <h4>{{song.name}} </h4>{{song.mbid}}
+          </div>
+    </a>
+  </ng-container>
 </div>
-<div class="grid grid-pad">
+

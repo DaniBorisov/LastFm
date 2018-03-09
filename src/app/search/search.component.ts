@@ -11,28 +11,26 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
 
   results: object[];
-  // searchTerm$ = new Subject<string>();
   @Input() searchTerm$: string;
 
   constructor(
     private searchService: SearchService) {
-      }
+    }
 
-   ngOnInit() {
-     console.log('dsadas');
-      this.getresult();
-   }
+  ngOnInit() {
+    console.log('dsadas');
+    this.getresult();
+  }
 
-   ngOnChange() {
-     console.log('dsadas');
-     this.getresult();
-   }
+  ngOnChange() {
+    console.log('dsadas');
+    this.getresult();
+  }
 
-   getresult(): void {
-    this.searchService.search(this.searchTerm$)
-      .subscribe(results => this.results = results);
-      console.log('search ot search comp', this.results);
-   }
-
+  getresult(): void {
+  this.searchService.search(this.searchTerm$)
+    .subscribe(results => this.results = results);
+    console.log('search ot search comp', this.results);
+  }
 }
 

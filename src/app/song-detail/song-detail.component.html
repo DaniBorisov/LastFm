@@ -1,14 +1,21 @@
 <div *ngIf="song.name">
+
     <!-- default view -->
- <ng-container *ngIf="parent">
-      <h2>{{ song.name | uppercase }}</h2>
+      <h3>{{ song.name | uppercase }}</h3>
+    <!-- Artist Songs View -->
+    <ng-container *ngIf="parent">
+      <button (click)="goBack()">go back</button>
       <div><span>artist: </span> {{song.artist.name}} </div>
       <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
-  </ng-container>
-    <!-- Artist Songs View -->
-  <ng-container *ngIf="!parent">
-    <!-- <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail> -->
-    <app-artist-song [mbid]="song.artist.mbid"></app-artist-song>
-  </ng-container>
+        <div class="songs">
+          <ng-container  *ngFor="let song of artistSongs">
+              <li>
+                  <a>
+                      <app-song-detail [mbid]= "song.mbid" >
+                      </app-song-detail>
+                  </a>
+              </li>
+          </ng-container>
+        </div>
+    </ng-container>
 </div>
-    <button (click)="goBack()">go back</button>

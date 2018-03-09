@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Component, OnInit, Input } from '@angular/core';
-
-import { Song } from './song';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { MessageService } from '../message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+
+import { Song } from './song';
+import { MessageService } from '../message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,19 +36,9 @@ export class SongService {
     const url = `${this.trackUrl}${name}`;
     console.log('log ot srvice za url', url);
     return this.http.get<Song>(url)
-    .map(res => res ['track'] as Song);
+      .map(res => res ['track'] as Song);
 
   }
-
-  // getSongsWithMbid(mbid: number): Observable<Song[]> {
-  //   if (mbid == null) {
-  //     return of ([]);
-  //   }
-  //   return this.http.get<Song[]>(`{mbid}`).pipe(
-  //     tap(_ => this.log(`found songs matching "${mbid}"`)),
-  //     catchError(this.handleError<Song[]>('searchSongs', []))
-  //   ).map(res => res['tracks']['track'] as Song[]);
-  // }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
