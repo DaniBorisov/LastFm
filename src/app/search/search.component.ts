@@ -18,19 +18,19 @@ export class SearchComponent implements OnInit {
     }
 
   ngOnInit() {
-    console.log('dsadas');
+    console.log('Search predi getresults');
     this.getresult();
   }
 
   ngOnChange() {
-    console.log('dsadas');
+    console.log('Search predi getresults ONCHANGE');
     this.getresult();
   }
 
   getresult(): void {
   this.searchService.search(this.searchTerm$)
     .subscribe(results => this.results = results);
-    console.log('search ot search comp', this.results);
+    console.log('results Getresult ot Search', this.results);
   }
 }
 

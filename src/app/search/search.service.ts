@@ -20,7 +20,7 @@ export class SearchService {
 
   search(search: string ): Observable<Song[]> {
     const url = `${this.searchtUrl}${search}`;
-    console.log('log ot search service za url', url);
+    console.log('URL ot search service', url);
     return this.http.get(url)
       .map(res => res['trackmatches']['track'] as Song[]);
   }

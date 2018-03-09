@@ -3,10 +3,10 @@
 <div class="grid grid-pad">
   <ng-container *ngFor="let song of songs">
     <a *ngIf="song.mbid"
-       class="col 0-5"
-       routerLink="/detail/{{song.mbid}}">
+       class="col 0-5">
           <div class="module song ">
-            <h4>{{song.name}} </h4>{{song.mbid}}
+            <h4 routerLink="/detail/{{song.mbid}}">{{song.name}} </h4>
+            <h4 routerLink="/detail/artist/{{song.artist.mbid}}">{{song.artist.name}} </h4>
           </div>
     </a>
   </ng-container>

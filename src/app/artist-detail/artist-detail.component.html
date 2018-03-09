@@ -4,5 +4,16 @@
             <h2> {{ artist.name | uppercase }} </h2>
             <h5 > {{artist.bio.summary}} </h5>
      </ng-container>
+     <ng-container *ngIf="parent">
+        <div class="artists">
+            <ng-container  *ngFor="let artist of artists">
+                <li>
+                    <a>
+                      {{artist.name}}
+                    </a>
+                </li>
+            </ng-container>
+          </div>
+     </ng-container>
   </div>
 </div>

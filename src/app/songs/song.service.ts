@@ -34,7 +34,7 @@ export class SongService {
 
   getSong(name: string): Observable<Song> {
     const url = `${this.trackUrl}${name}`;
-    console.log('log ot srvice za url', url);
+    console.log('url ot getSong song.service', url);
     return this.http.get<Song>(url)
       .map(res => res ['track'] as Song);
 

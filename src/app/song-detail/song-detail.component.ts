@@ -47,8 +47,8 @@ export class SongDetailComponent implements OnInit {
      this.songService.getSong(mbid)
       .subscribe(song => {
         this.song = song;
-        console.log('get song ot song.artist.mbid details', this.song);
-        console.log(this.parent);
+        console.log('tgis.song ot getSong song-detail', this.song);
+        console.log('parent flag getSong ot song detaul', this.parent);
         if (this.parent) {
           this.getToptrackArtist(song.artist['mbid']);
         }

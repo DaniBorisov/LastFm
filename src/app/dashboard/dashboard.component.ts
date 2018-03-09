@@ -19,6 +19,6 @@ export class DashboardComponent implements OnInit {
   getSongs(): void {
     this.songService.getSongs()
       .subscribe(songs => this.songs = songs);
-      console.log('get ot dash', this.songs);
+      console.log('getSong ot dash', this.songs);
   }
 }
