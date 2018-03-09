@@ -22,6 +22,6 @@ export class SearchService {
     const url = `${this.searchtUrl}${search}`;
     console.log('URL ot search service', url);
     return this.http.get(url)
-      .map(res => res['trackmatches']['track'] as Song[]);
+      .map(res => res['trackmatches'] as Song[]);
   }
 }
