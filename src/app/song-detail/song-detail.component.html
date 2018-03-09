@@ -13,7 +13,10 @@
           <ng-container  *ngFor="let song of artistSongs">
               <li>
                   <a>
-                      <app-song-detail routerLink="/detail/{{song.mbid}}" [mbid]= "song.mbid">
+                      <app-song-detail
+                      routerLink="/detail/{{song.mbid}}"
+                      [mbid]= "song.mbid"
+                      (click)="reload()">
                       </app-song-detail>
                   </a>
               </li>

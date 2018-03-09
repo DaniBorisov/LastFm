@@ -24,6 +24,10 @@ export class ArtistSongComponent implements OnInit {
     this.getToptrackArtist();
   }
 
+  ngOnChange() {
+    this.getToptrackArtist();
+  }
+
   getToptrackArtist(): void {
     const mbid = this.route.snapshot.paramMap.get('mbid');
     this.artistService.getArtistTop(mbid)

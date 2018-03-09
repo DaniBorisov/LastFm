@@ -19,13 +19,14 @@ export class ArtistDetailComponent implements OnInit {
   constructor(
     private artistService: ArtistService,
     private route: ActivatedRoute,
-  ) { }
+  ) {  }
 
   ngOnInit() {
     this.getArtist();
   }
 
   ngOnChange() {
+    location.reload();
     this.getArtist();
   }
 
@@ -52,5 +53,9 @@ export class ArtistDetailComponent implements OnInit {
         this.artists = artists;
         console.log('artists ot artist detail', this.artists);
       });
+  }
+
+  reload(): void {
+    location.reload();
   }
 }

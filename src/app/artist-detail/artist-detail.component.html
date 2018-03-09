@@ -11,7 +11,8 @@
             <ng-container  *ngFor="let artist of artists">
                 <li>
                     <a>
-                        <h4 routerLink="/detail/artist/{{artist.mbid}}">{{artist.name}} </h4>
+                        <h4 (click)="reload()"
+                         routerLink="/detail/artist/{{artist.mbid}}">{{artist.name}} </h4>
                     </a>
                 </li>
             </ng-container>

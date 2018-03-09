@@ -67,4 +67,8 @@ export class SongDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  reload(): void {
+    location.reload();
+  }
 }
