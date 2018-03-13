@@ -1,5 +1,18 @@
+<div>
+  <h4>Song Search</h4>
+  <input #searchBox id="search-box" [(ngModel)]="searchTerms"/>
+  <button (click)="getresult()"> search</button>
+  <!-- <input #searchBox id="search-box" (keyup)="getresult(searchBox.value)" /> -->
+  <ul *ngIf="songs" >
+    <li *ngFor="let song of songs" >
+      <a >
+       <h4> {{song.name}} </h4>
+      </a>
+    </li>
+  </ul>
+</div>
 
-<input
+<!-- <input
 (keyup)="searchTerm$.next($event.target.value)">
 <div *ngIf="searchTerm$">
   <ul *ngIf="results">
@@ -9,4 +22,4 @@
       </a>
     </li>
   </ul>
-</div>
+</div> -->
