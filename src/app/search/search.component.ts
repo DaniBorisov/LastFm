@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Song } from '../songs/song';
 import { OnChanges } from '@angular/core';
+import { SimpleChanges } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -15,23 +16,17 @@ import { NgModel } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnChanges {
 
-  // results: object[];
-  searchTerms: string;
-  songs: Song[];
-  // private searchTerms = new Subject<string>();
-
+  @Input() searchTerms: string;
+  public songs: Song[];
 
   constructor(
     private searchService: SearchService) {
     }
 
-    // search(term: string): void {
-    //   this.searchTerms.next(term);
-    // }
-
     ngOnInit(): void {
+      console.log('onInit');
       this.getresult();
       // this.songs$ = this.searchTerms.pipe(
       //   debounceTime(300),
@@ -40,15 +35,23 @@ export class SearchComponent implements OnInit {
       // );
     }
 
-    ngOnChange() {
-      console.log('dsadsa');
+    ngOnChanges(changes: SimpleChanges) {
+      console.log('onchange');
       this.getresult();
     }
 
     getresult(): void {
-      console.log('this.searchterms ot getresult', this.searchTerms);
+      if (!this.searchTerms) {
+      console.log('this.searchterms ot getresult pri nqmane', this.searchTerms);
+      }
+      if (this.searchTerms) {
       this.searchService.search(this.searchTerms)
-        .subscribe(songs => this.songs = songs);
+        .subscribe(songs => {
+           this.songs = songs;
+           console.log('searchTerms', this.searchTerms);
+           console.log('songs ot GETRESULTS', this.songs);
+        });
+      }
       }
   // ngOnInit() {
   //   console.log('Search predi getresults');
