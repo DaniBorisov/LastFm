@@ -5,7 +5,6 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { environment } from './../../environments/environment';
 
 import { Song } from './song';
@@ -53,6 +52,6 @@ export class SongService {
     console.log('log ot service ako ima term za term', term);
     console.log('log ot service ako ima term za url', url);
     return this.http.get(url)
-    .map(res => res['results']['trackmatches']['track'] as Song[]);
+      .map(res => res['results']['trackmatches']['track'] as Song[]);
   }
 }

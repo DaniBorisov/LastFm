@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs/Observable';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
@@ -33,20 +32,20 @@ export class ArtistService {
     const url = `${this.artistUrl}${mbid}`;
     console.log('URL getArtist ot artist service', url);
     return this.http.get<Artist>(url)
-    .map (res => res ['artist'] as Artist);
+      .map (res => res ['artist'] as Artist);
   }
 
   getArtistTop(mbid: string): Observable<Song[]> {
     const url = `${this.artistTopTracksUrl}${mbid}`;
     console.log('URL artistTOP ot artist service', url);
     return this.http.get(url)
-    .map(res => res['toptracks']['track'] as Song[]);
+      .map(res => res['toptracks']['track'] as Song[]);
   }
 
   getSimilarArtist(mbid: string): Observable<Artist[]> {
     const url = `${this.artistSimilarUrl}${mbid}`;
     console.log('URL artistSIM ot artist service', url);
     return this.http.get(url)
-    .map(res => res['similarartists']['artist'] as Artist[]);
+      .map(res => res['similarartists']['artist'] as Artist[]);
   }
 }

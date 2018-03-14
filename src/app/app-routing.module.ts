@@ -12,6 +12,7 @@ import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'detail/:mbid', component: SongDetailComponent },
+  { path: 'song', component: SongsComponent },
   { path: 'detail/artist/:mbid', component: ArtistDetailComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];

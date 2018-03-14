@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../artist-detail/artist.service';
 import { Song } from '../songs/song';
 
-
 @Component({
   selector: 'app-artist-song',
   templateUrl: './artist-song.component.html',

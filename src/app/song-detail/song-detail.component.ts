@@ -39,13 +39,13 @@ export class SongDetailComponent implements OnInit {
 
   getSong(): void {
     let mbid = '';
-    if ( !(this.mbid !== '' && this.mbid != null)) {
+    if (!(this.mbid !== '' && this.mbid != null)) {
       this.parent = true;
        mbid = this.route.snapshot.paramMap.get('mbid');
     } else {
        mbid = this.mbid;
     }
-     this.songService.getSong(mbid)
+    this.songService.getSong(mbid)
       .subscribe(song => {
         this.song = song;
         console.log('tgis.song ot getSong song-detail', this.song);
@@ -73,4 +73,3 @@ export class SongDetailComponent implements OnInit {
     location.reload();
   }
 }
-

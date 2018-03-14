@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ArtistService } from './artist.service';
 import { Artist } from './artist';
 
-
 @Component({
   selector: 'app-artist-detail',
   templateUrl: './artist-detail.component.html',
@@ -27,12 +26,12 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   ngOnChange() {
-    location.reload();
+    this.reload();
     this.getArtist();
   }
 
   getArtist(): void {
-    const ambid = this.route.snapshot.paramMap.get('mbid');
+    const artistmbid = this.route.snapshot.paramMap.get('mbid');
     if ( !(this.mbid !== '' && this.mbid != null)) {
       this.parent = true;
       console.log('Sim PARENT', this.parent);
@@ -41,10 +40,10 @@ export class ArtistDetailComponent implements OnInit {
       .subscribe(artist => {
         this.artist = artist;
         if (this.parent) {
-          this.getSimilarArtist(ambid);
+          this.getSimilarArtist(artistmbid);
         }
       });
-      console.log('artist ot artist-detail', this.artist);
+  console.log('artist ot artist-detail', this.artist);
   }
 
   getSimilarArtist(mbid: string): void {
