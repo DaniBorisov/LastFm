@@ -38,11 +38,12 @@ export class SongDetailComponent implements OnInit {
   }
 
   getSong(): void {
+    let mbid = '';
     if ( !(this.mbid !== '' && this.mbid != null)) {
       this.parent = true;
-      const mbid = this.route.snapshot.paramMap.get('mbid');
+       mbid = this.route.snapshot.paramMap.get('mbid');
     } else {
-      const mbid = this.mbid;
+       mbid = this.mbid;
     }
      this.songService.getSong(mbid)
       .subscribe(song => {
@@ -72,3 +73,4 @@ export class SongDetailComponent implements OnInit {
     location.reload();
   }
 }
+

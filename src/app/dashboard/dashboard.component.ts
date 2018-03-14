@@ -9,6 +9,7 @@ import { SongService } from '../songs/song.service';
 })
 export class DashboardComponent implements OnInit {
   songs: Song[] = [];
+  public searchTerms: string;
 
   constructor(private songService: SongService) { }
 
@@ -21,4 +22,18 @@ export class DashboardComponent implements OnInit {
       .subscribe(songs => this.songs = songs);
       console.log('getSong ot dash', this.songs);
   }
+
+  getresult(): void {
+    if (!this.searchTerms) {
+    console.log('this.searchterms ot getresult pri nqmane', this.searchTerms);
+    }
+    if (this.searchTerms) {
+    this.songService.search(this.searchTerms)
+      .subscribe(songs => {
+         this.songs = songs;
+         console.log('searchTerms', this.searchTerms);
+         console.log('songs ot GETRESULTS', this.songs);
+      });
+    }
+    }
 }

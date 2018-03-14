@@ -23,6 +23,9 @@ export class SongService {
   private trackUrl =
   'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json&mbid=';
 
+  private searchtUrl =
+  'http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=93bcfc1e220302d0402898ef74fce279&format=json&track=';
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
@@ -38,6 +41,19 @@ export class SongService {
     return this.http.get<Song>(url)
       .map(res => res ['track'] as Song);
 
+  }
+
+  search(term: string): Observable<Song[]> {
+    if (!(term !== '' && term != null)) {
+      console.log('log ot service za prazen', term);
+      // if not search term, return empty song array.
+      return of ([]);
+    }
+    const url = `${this.searchtUrl}${term}`;
+    console.log('log ot service ako ima term za term', term);
+    console.log('log ot service ako ima term za url', url);
+    return this.http.get(url)
+    .map(res => res['results']['trackmatches']['track'] as Song[]);
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
