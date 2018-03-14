@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from './../../environments/environment';
 
 import { SongService } from '../songs/song.service';
 import { Artist } from './artist';
@@ -17,13 +17,13 @@ const httpOptions = {
 export class ArtistService {
 
   private artistUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json&mbid=';
+  'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&api_key=' + environment.api_key + '&format=json&mbid=';
 
   private artistTopTracksUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5&mbid=';
+  'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&api_key=' + environment.api_key + '&format=json&limit=5&mbid=';
 
   private artistSimilarUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&api_key=93bcfc1e220302d0402898ef74fce279&format=json&limit=5&mbid=';
+  'http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&api_key=' + environment.api_key + '&format=json&limit=5&mbid=';
 
   constructor(
     private http: HttpClient,

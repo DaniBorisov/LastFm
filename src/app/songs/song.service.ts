@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { environment } from './../../environments/environment';
 
 import { Song } from './song';
 
@@ -17,13 +18,13 @@ const httpOptions = {
 export class SongService {
 
   private SongsUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=93bcfc1e220302d0402898ef74fce279&format=json';
+  'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=' + environment.api_key + '&format=json';
 
   private trackUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=93bcfc1e220302d0402898ef74fce279&format=json&mbid=';
+  'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=' + environment.api_key + '&format=json&mbid=';
 
   private searchtUrl =
-  'http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=93bcfc1e220302d0402898ef74fce279&format=json&track=';
+  'http://ws.audioscrobbler.com/2.0/?method=track.search&api_key=' + environment.api_key + '&format=json&track=';
 
   constructor(
     private http: HttpClient,
