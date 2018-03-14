@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Song } from './song';
-import { MessageService } from '../message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,7 +27,7 @@ export class SongService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+  ) {}
 
   getSongs(): Observable<Song[]> {
     return this.http.get(this.SongsUrl)
@@ -54,17 +53,5 @@ export class SongService {
     console.log('log ot service ako ima term za url', url);
     return this.http.get(url)
     .map(res => res['results']['trackmatches']['track'] as Song[]);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
-  private log(message: string) {
-    this.messageService.add('SongService: ' + message);
   }
 }

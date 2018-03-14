@@ -43,13 +43,13 @@ nav a.active {
     height: 1.6em;
     border-radius: 4px;
   }
-   
+
   .songs li:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
   }
-   
+
   .songs a {
     color: #888;
     text-decoration: none;
@@ -57,11 +57,11 @@ nav a.active {
     display: block;
     width: 250px;
   }
-   
+
   .songs a:hover {
     color:#607D8B;
   }
-   
+
   .songs .badge {
     display: inline-block;
     font-size: small;

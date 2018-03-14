@@ -5,7 +5,6 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { MessageService } from '../message.service';
 import { SongService } from '../songs/song.service';
 import { Artist } from './artist';
 import { Song } from '../songs/song';
@@ -28,7 +27,7 @@ export class ArtistService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+  ) {}
 
   getArtist(mbid: string): Observable<Artist> {
     const url = `${this.artistUrl}${mbid}`;
@@ -49,17 +48,5 @@ export class ArtistService {
     console.log('URL artistSIM ot artist service', url);
     return this.http.get(url)
     .map(res => res['similarartists']['artist'] as Artist[]);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
-  private log(message: string) {
-    this.messageService.add('SongService: ' + message);
   }
 }
