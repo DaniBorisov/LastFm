@@ -35,5 +35,5 @@ export class DashboardComponent implements OnInit {
          console.log('songs ot GETRESULTS', this.songs);
       });
     }
-    }
+  }
 }

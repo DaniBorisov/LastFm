@@ -17,7 +17,7 @@ export class ArtistSongComponent implements OnInit {
   constructor(
     private artistService: ArtistService,
     private route: ActivatedRoute,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getToptrackArtist();
