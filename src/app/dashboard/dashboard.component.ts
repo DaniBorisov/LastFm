@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from '../songs/song';
 import { SongService } from '../songs/song.service';
+import { CustomMaterialModule } from '../CustomMaterialModule';
+
+import 'hammerjs/hammer';
+
 
 @Component({
   selector: 'app-dashboard',

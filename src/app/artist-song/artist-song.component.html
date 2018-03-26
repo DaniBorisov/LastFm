@@ -1,10 +1,11 @@
-<h2>Top Songs</h2>
-<div class="songs">
-    <li *ngFor="let song of songs">
-        <div *ngIf="song">
-            <a routerLink="/detail/{{song.mbid}}">
-                <span class="badge">{{song.name}} </span>
-            </a>
-        </div>
-    </li>
+
+<div class="songs" style="text-align:center">
+    <mat-nav-list class="mat-list">
+        <mat-list-item class="mat-list-items" *ngFor="let song of songs">
+            <h4 mat-line (click)="reload()"
+            routerLink="/detail/{{song.mbid}}">
+                {{song.name}}
+            </h4>
+        </mat-list-item>
+    </mat-nav-list>
 </div>

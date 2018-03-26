@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/window';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',

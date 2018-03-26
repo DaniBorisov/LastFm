@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomMaterialModule } from './CustomMaterialModule';
 
 import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
@@ -28,6 +29,7 @@ import { ArtistService } from './artist-detail/artist.service';
     HttpModule,
     HttpClientModule,
     BrowserModule,
+    CustomMaterialModule,
     FormsModule,
     AppRoutingModule
   ],

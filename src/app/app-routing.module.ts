@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Router, RouterModule, Routes } from '@angular/router';
+import {Router, RouterModule, Routes } from '@angular/router';
 import { SongsComponent } from './songs/songs.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';

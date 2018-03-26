@@ -51,6 +51,7 @@ export class SongDetailComponent implements OnInit {
         console.log('tgis.song ot getSong song-detail', this.song);
         console.log('parent flag getSong ot song detaul', this.parent);
         if (this.parent) {
+          console.log('parent flag getSong ot AONGG detaul', this.parent);
           this.getToptrackArtist(song.artist['mbid']);
         }
       });

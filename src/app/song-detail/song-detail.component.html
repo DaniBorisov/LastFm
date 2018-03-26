@@ -1,17 +1,53 @@
 <div *ngIf="song.name">
-    <!-- default view -->
-      <h3>{{song.name | uppercase}}</h3>
-          <ng-container *ngIf="parent">
-                <button (click)="goBack()">go back</button>
-                <h5>{{song.wiki.summary}}</h5>
-          </ng-container>
-    <!-- Artist Songs View -->
     <ng-container *ngIf="parent">
-        <div><span>artist:</span> {{song.artist.name}} </div>
-        <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
+        <button (click)="goBack()">go back</button>
+    </ng-container>
+    <mat-grid-list *ngIf="parent" cols="2">
+        <mat-grid-tile *ngIf="parent">
+            <mat-card class="song-card">
+                <mat-card-header class="song-card-header">
+                    <div *ngIf="parent" mat-card-avatar class="song-header-image">{{song.album.image[0].text}}</div>
+                    <div class="song-card-titles">
+                        <mat-card-title>{{song.name | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{song.artist.name}}</mat-card-subtitle>
+                    </div>
+                </mat-card-header>
+                <img *ngIf="parent" class="song-card-img" mat-card-image src="https://metrouk2.files.wordpress.com/2017/01/the-killers-2-e1485012869982.jpg?quality=80&strip=all">
+                <mat-card-content *ngIf="parent">
+                    <p>{{song.wiki.summary}}</p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="parent">
+            <app-artist-detail [mbid]="song.artist.mbid"></app-artist-detail>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- <mat-card class="song-card">
+        <mat-card-header class="song-card-header">
+            <div class="song-card-titles">
+                <mat-card-title>{{song.name | uppercase}}</mat-card-title>
+                <mat-card-subtitle>{{song.artist.name}}</mat-card-subtitle>
+            </div>
+        </mat-card-header>
+    </mat-card> -->
+
+    <!-- Artist Songs View -->
+    <ng-container>
         <div class="songs">
             <ng-container *ngFor="let song of artistSongs">
-                <li>
+                <mat-nav-list>
+                    <mat-list-item class="mat-list-items-art">
+                        <a>
+                            <app-song-detail
+                                routerLink="/detail/{{song.mbid}}"
+                                [mbid]= "song.mbid"
+                                (click)="reload()">
+                            </app-song-detail>
+                        </a>
+                    </mat-list-item>
+                </mat-nav-list>
+                <!-- <li>
                     <a>
                         <app-song-detail
                             routerLink="/detail/{{song.mbid}}"
@@ -19,7 +55,7 @@
                             (click)="reload()">
                         </app-song-detail>
                     </a>
-                </li>
+                </li> -->
             </ng-container>
         </div>
     </ng-container>

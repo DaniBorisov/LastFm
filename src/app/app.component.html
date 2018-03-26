@@ -1,12 +1,30 @@
-
-<div style="text-align:center">
-  <h1>
+<mat-toolbar class="mat-toolbar--fixed" id="navBar">
+    <section class="align-start">
+      <a class="mat-toolbar__title-link" href="/dashboard">
+          <h1 class="mat-toolbar__titlet--full">Last FM Music App</h1>
+      </a>
+    </section>
+    <div class="flex-spacer"></div>
+    <section class="align-end">
+      <nav class="toolbar-nav">
+            <a class="nav-button" mat-button routerLink="/dashboard">
+                <span class="toolbar-nav-link__text">Dashboard</span>
+            </a>
+            <a class="nav-button" mat-button routerLink="/song">
+              <span class="toolbar-nav-link__text">Songs</span>
+            </a>
+      </nav>
+    </section>
+</mat-toolbar>
+  <!-- <h1>
     Welcome to {{ title }}
 
   </h1>
   <nav>
       <a routerLink="/dashboard">Dashboard</a>
       <a routerLink="/song">Songs</a>
-    </nav>
+    </nav> -->
+<div class="content"  style="text-align:center">
   <router-outlet></router-outlet>
 </div>
+<!-- </div> -->

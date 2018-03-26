@@ -19,7 +19,7 @@ export class ArtistDetailComponent implements OnInit {
   constructor(
     private artistService: ArtistService,
     private route: ActivatedRoute,
-  ) {}
+  ) {  }
 
   ngOnInit() {
     this.getArtist();
