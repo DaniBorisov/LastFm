@@ -1,0 +1,16 @@
+<h3>Top 5 Songs Today!</h3>
+
+<h4>Song Search</h4>
+<input #searchBox id="search-box" [(ngModel)]="searchTerms"/>
+<button (click)="getresult()">Search</button>
+<div class="grid grid-pad">
+  <ng-container *ngFor="let song of songs">
+    <a *ngIf="song.mbid"
+       class="col 0-5">
+      <div class="module song">
+        <h4 routerLink="/detail/{{song.mbid}}">{{song.name}}</h4>
+        <h4 routerLink="/detail/artist/{{song.artist.mbid}}">{{song.artist.name}}</h4>
+      </div>
+    </a>
+  </ng-container>
+</div>

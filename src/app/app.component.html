@@ -1,8 +1,12 @@
 
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ title }}
 
-   
-  </h1> 
+  </h1>
+  <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/song">Songs</a>
+    </nav>
+  <router-outlet></router-outlet>
 </div>

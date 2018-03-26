@@ -1,0 +1,22 @@
+<div style="text-align:center">
+    <div class="artist">
+        <ng-container *ngIf="artist">
+            <h2>{{artist.name | uppercase}}</h2>
+            <h5>{{artist.bio.summary}}</h5>
+        </ng-container>
+        <ng-container *ngIf="parent">
+            <app-artist-song></app-artist-song>
+            <h2>Similar Artist</h2>
+            <div class="artists">
+                <ng-container *ngFor="let artist of artists">
+                    <li>
+                        <a>
+                            <h4 (click)="reload()"
+                             routerLink="/detail/artist/{{artist.mbid}}">{{artist.name}}</h4>
+                        </a>
+                    </li>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</div>
