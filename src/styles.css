@@ -5,11 +5,9 @@ body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
 }
-
 .basic-container {
   padding: 5px;
 }
-
 .version-info {
   font-size: 8pt;
   float: right;
@@ -42,7 +40,9 @@ body {
   align-content: end;
   flex: 1 1 auto;
   flex-direction: row;
-  padding-inline-start: 20px;
+  margin-inline-start: 25px;
+  margin-bottom: 10px;
+  width: 20px;
 
 }
 .nav-button.mat-button {
@@ -53,19 +53,44 @@ body {
   font-style: normal;
 }
 .content {
-  margin-top: 20px;
+  text-align:center;
 }
   /* DASHBOARD */
-  .mat-list {
-    align-content: center;
-    margin:0 auto;
-  }
+.dash-body {
+  font-weight: bold;
+  background-image: url("no.jpg");
+  background-size: contain;
+}
+.search_button{
+  opacity: 0.5;
+}
+.mat-list {
+  align-content: center;
+  margin:0 auto;
+}
 .mat-list-items {
+  opacity: 0.5;
   background-color:snow;
   margin-top: 5px;
 }
+.mat-list-text{
+  opacity: 1;
+  color:rgb(212, 71, 71);
+}
 
-    	  /* SONG DETAIL */
+        /* SONG DETAIL */
+
+.goback-button.mat-fab.mat-primary{
+  float: right;
+  padding:0;
+  cursor: hand;
+  margin-top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  top:2.5px;
+  border-radius: 100%;
+  z-index: 100;
+}
   /* SONG CARD */
 .song-card {
   max-width: 400px;

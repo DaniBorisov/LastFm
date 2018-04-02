@@ -1,15 +1,17 @@
-<h3>Top 5 Songs Today!</h3>
 
-<h4>Song Search</h4>
-<mat-form-field>
-    <input matInput placeholder="Search" [(ngModel)]="searchTerms">
-</mat-form-field>
-<button mat-raised-button (click)="getresult()">Search</button>
-<ng-container *ngFor="let song of songs">
-  <mat-nav-list class="mat-list" *ngIf="song.mbid">
-    <mat-list-item class="mat-list-items">
-        <h4 matLine routerLink="/detail/{{song.mbid}}">{{song.name}}</h4>
-        <h5 matLine routerLink="/detail/artist/{{song.artist.mbid}}">{{song.artist.name}}</h5>
-    </mat-list-item>
-  </mat-nav-list>
-</ng-container>
+<body class="dash-body">
+  <h2>Top Songs Today!</h2>
+  <h4>Song Search</h4>
+  <mat-form-field>
+      <input matInput placeholder="Search" [(ngModel)]="searchTerms">
+  </mat-form-field>
+  <button class="search_button" mat-raised-button (click)="getresult()">Search</button>
+  <ng-container *ngFor="let song of songs">
+    <mat-nav-list class="mat-list" *ngIf="song.mbid">
+      <mat-list-item class="mat-list-items">
+          <h4 matLine routerLink="/detail/{{song.mbid}}">{{song.name}}</h4>
+          <h5 matLine routerLink="/detail/artist/{{song.artist.mbid}}">{{song.artist.name}}</h5>
+      </mat-list-item>
+    </mat-nav-list>
+  </ng-container>
+</body>

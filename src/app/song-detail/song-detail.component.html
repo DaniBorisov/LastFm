@@ -1,12 +1,12 @@
+<ng-container *ngIf="parent">
+    <button class="goback-button" mat-fab color="primary" (click)="goBack()">go back</button>
+</ng-container>
 <div *ngIf="song.name">
-    <ng-container *ngIf="parent">
-        <button (click)="goBack()">go back</button>
-    </ng-container>
     <mat-grid-list *ngIf="parent" cols="2">
         <mat-grid-tile *ngIf="parent">
             <mat-card class="song-card">
                 <mat-card-header class="song-card-header">
-                    <div *ngIf="parent" mat-card-avatar class="song-header-image">{{song.album.image[0].text}}</div>
+                    <div *ngIf="parent" mat-card-avatar class="song-header-image" >{{song.album.image[0].text}}</div>
                     <div class="song-card-titles">
                         <mat-card-title>{{song.name | uppercase}}</mat-card-title>
                         <mat-card-subtitle>{{song.artist.name}}</mat-card-subtitle>
@@ -47,7 +47,7 @@
                         </a>
                     </mat-list-item>
                 </mat-nav-list>
-                <!-- <li>
+                <li>
                     <a>
                         <app-song-detail
                             routerLink="/detail/{{song.mbid}}"
@@ -55,7 +55,7 @@
                             (click)="reload()">
                         </app-song-detail>
                     </a>
-                </li> -->
+                </li>
             </ng-container>
         </div>
     </ng-container>

@@ -1,10 +1,12 @@
+<ng-container *ngIf="parent">
+        <button class="goback-button" mat-fab color="primary" (click)="goBack()">go back</button>
+</ng-container>
 <div style="text-align:center">
-
     <!-- ARTIST CARD -->
     <ng-container *ngIf="artist">
         <mat-card class="artist-card">
             <mat-card-header>
-                <div mat-card-avatar class="artist-header-image">{{artist.image[0].text}}</div>
+                <div mat-card-avatar class="artist-header-image" ></div>
                 <mat-card-title>{{artist.name | uppercase}}</mat-card-title>
             </mat-card-header>
             <img class="artist-card-img" src="https://metrouk2.files.wordpress.com/2017/01/the-killers-2-e1485012869982.jpg?quality=80&strip=all">
@@ -16,12 +18,12 @@
 
     <!-- SIMILAR ARTIST AND TOP SONGS -->
     <ng-container *ngIf="parent">
-        <mat-tab-group>
+        <mat-tab-group color="accent">
             <mat-tab label="Top 5 Songs">
                 <app-artist-song></app-artist-song>
             </mat-tab>
             <mat-tab label="Similar Artists">
-                <mat-nav-list class="mat-list">
+                <mat-nav-list  class="mat-list">
                     <mat-list-item class="mat-list-items" *ngFor="let artist of artists">
                         <h4 mat-line (click)="reload()"
                         routerLink="/detail/artist/{{artist.mbid}}">
